@@ -1,0 +1,1 @@
+gcc main.c libmlx42.a -lglfw -L /Users/fnieves-/.brew/Cellar/glfw/3.3.7/lib
