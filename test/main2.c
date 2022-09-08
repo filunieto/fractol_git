@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 13:21:46 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/03 21:41:40 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/09/05 20:36:50 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int32_t	main(void)
 	mlx_put_pixel(img, 0, 0, 0xFF0000FF);
 
 	// Register a hook and pass mlx as an optional param.
-	// NOTE: Do this before calling mlx_loop!
+	// NOTE: Do this before calling mlx_loop! 
 	mlx_loop_hook(mlx, ft_hook, mlx);
 	mlx_loop(mlx);
 	mlx_terminate(mlx);

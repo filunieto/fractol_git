@@ -20,6 +20,8 @@
 	},
 	"peacock.color": "#1857a4",
 	"files.associations": {
-		"mlx42.h": "c"
+		"mlx42.h": "c",
+		"stdio.h": "c",
+		"string.h": "c"
 	}
 }

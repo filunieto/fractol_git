@@ -1,26 +1,13 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 13:21:46 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/04 15:36:13 by fnieves-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-
-
 #include "MLX42/include/MLX42/MLX42.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include <unistd.h>
 #include <memory.h>
 #define WIDTH 500
 #define HEIGHT 256
-#define WIDTH_PIXEL 60
-#define HEIGHT_PIXEL 128
+#define WIDTH_PIXEL 1
+#define HEIGHT_PIXEL 1
 #define BPP sizeof(int32_t)
 
 
@@ -113,7 +100,7 @@ int32_t	main(void)
 	if (!mlx)
 		ft_error();
     // Create a 256x256 image.
-	img = mlx_new_image(mlx, 256, 256);
+	img = mlx_new_image(mlx, 1, 1);
 	if (!img || (mlx_image_to_window(mlx, img, 0, 0) < 0))
 		ft_error();
 		
@@ -124,58 +111,19 @@ int32_t	main(void)
 void	*memset(void *s, int c, size_t n)
 // Set the channels of each pixel in our image to the maximum byte value of 255. 
 */
-	memset(g_img->pixels, 255, g_img->width * g_img->height * sizeof(int));
+	memset(g_img->pixels, 64, g_img->width * g_img->height * sizeof(int));
+	memset(img->pixels, 32, img->width * img->height * sizeof(int));
+
 	
-	mlx_put_pixel(img, 0, 0, 0xaaaaaaFF); //esta no la entiendo
-	mlx_put_pixel(g_img, 0, 0, 0xaaaaaaFF);
+	mlx_put_pixel(img, 0, 0, 0x00FF00FF); //pone un pixel en la instancia img
+	mlx_put_pixel(g_img, 0, 0, 0xFFFF00FF);//pone un pixel en el cuadro g_img
 
     // start the image at coordinate defined in parameters .
 	mlx_image_to_window(mlx, g_img, WIDTH - WIDTH/2, HEIGHT - HEIGHT/3);
-	mlx_loop_hook(mlx, &hook, mlx);
-	mlx_loop_hook(mlx, ft_hook, mlx);
+	mlx_image_to_window(mlx, img, WIDTH/2, HEIGHT/2);
+	mlx_loop_hook(mlx, &hook, mlx); //funciones de teclado
+	mlx_loop_hook(mlx, &ft_hook, mlx);// indica el nuevo tamano de la ventana
 	mlx_loop(mlx);
 	mlx_terminate(mlx);
 	return (EXIT_SUCCESS);
 }
-
-
-// typedef struct	s_data {
-// 	mlx_t	*mlx;
-// 	void	*img;
-// 	char	*addr;
-// 	int		bits_per_pixel;
-// 	int		line_length;
-// 	int		endian;
-// }				t_data;
-
-// int32_t	main(void)
-// {
-// 	mlx_t	*mlx;
-
-// 	t_data data;
-// 	data.mlx = mlx_init(WIDTH, HEIGHT, "Flipi", true);
-// 	if (!mlx)
-// 		exit(EXIT_FAILURE);
-// 	// g_img = mlx_new_image(mlx, 64, 128);
-// 	memset(g_img->pixels, 255, g_img->width * g_img->height * sizeof(int));
-// 	int i = 0;
-// 	int j = 0;
-// 	data.img = mlx_new_image(mlx, WIDTH, HEIGHT);
-// 	g_img = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-// 								&img.endian);
-// 	while(i<WIDTH)
-// 	{
-// 		j=0;
-// 		while(j < HEIGHT)
-// 		{
-// 			j++;
-// 			mlx_pixel_to_image(mlx, g_img, 250, 125);
-// 		}
-// 		i++;
-// 	}
-// 	mlx_image_to_window(mlx, g_img, 250, 125);
-// 	mlx_loop_hook(mlx, &hook, mlx);
-// 	mlx_loop(mlx);
-// 	mlx_terminate(mlx);
-// 	return (EXIT_SUCCESS);
-// }

@@ -6,7 +6,7 @@
 #    By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/22 15:22:54 by fnieves-          #+#    #+#              #
-#    Updated: 2022/08/30 10:39:00 by fnieves-         ###   ########.fr        #
+#    Updated: 2022/09/08 22:51:24 by fnieves-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,9 @@ ft_split.c ft_putchar_fd.c ft_putstr_fd.c \
 ft_putnbr_fd.c ft_putendl_fd.c ft_itoa.c \
 ft_strmapi.c ft_striteri.c ft_strncmp_uplo.c \
 ft_atof.c ft_isspace.c ft_strisfloat.c ft_pow.c
+
 #define the sourcefiles that the bonuspart needs
+
 BSRC = ft_lstnew.c ft_lstadd_front.c ft_lstlast.c \
 ft_lstsize.c ft_lstadd_back.c ft_lstdelone.c \
 ft_lstclear.c ft_lstiter.c ft_lstmap.c
@@ -39,7 +41,7 @@ HEADER = libft.h
 # define the name of the library you want to produce
 NAME = libft.a
 
-all : $(NAME)
+all : $(NAME) bonus
 
 $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)
