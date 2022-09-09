@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 22:20:33 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/08 22:25:00 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/09/09 13:20:35 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,32 @@
 // Structure for the fractol variables
 typedef struct  s_fractol
 {
-	void	*mlx;	// Pointer to mlx
-	void	*win;	// Pointer to window
 	double  min_r;	// Minimum value of real axis
 	double  max_r;	// Maximum value of real axis
 	double  min_i;	// Minimum value of imaginary axis
 	double  max_i;	// Maximum value of imaginary axis
-}   t_fractol;
+	double	c_re;
+	double	c_im;
+	double	j_re;
+	double	j_im;
+	double	z;
+	double	z_re;
+	double	z_im;
+	int		fract_id; //identificacion de fractal
+}	t_fractol;
 
+typedef struct s_mlxwin
+{
+	void	*mlx;	// Pointer to mlx
+	void	*win;	// Pointer to window
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	double	mouse_x_pos;
+	double	mouse_y_pos;
+	t_fractol	*f;
+}			t_mlxwin;
 
 #endif

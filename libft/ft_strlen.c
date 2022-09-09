@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 16:51:37 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/12 17:13:51 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/09/09 12:11:00 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ size_t	ft_strlen(const char *s)
 	size_t	i;
 
 	i = 0;
+	if (!s)
+		return (i);
 	while (s[i])
-	{
 		i++;
-	}
 	return (i);
 }

@@ -22,6 +22,7 @@
 	"files.associations": {
 		"mlx42.h": "c",
 		"stdio.h": "c",
-		"string.h": "c"
+		"string.h": "c",
+		"mlx.h": "c"
 	}
 }
