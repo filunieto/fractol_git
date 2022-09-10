@@ -6,7 +6,7 @@
 #    By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/08 22:26:19 by fnieves-          #+#    #+#              #
-#    Updated: 2022/09/09 20:34:07 by fnieves-         ###   ########.fr        #
+#    Updated: 2022/09/10 15:00:38 by fnieves-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,13 @@ CC 		= 		cc
 
 FLAGS		= 		-Wall -Wextra -Werror
 
-SRC 		= 	src/main.c										\
+SRC 		= 	main.c										\
 				src/parsing.c									\
 				src/inicialize.c								\
 				src/print_fractal.c								\
 				src/error_handling.c							\
+				src/mandelbrot.c							\
+				src/julia.c							\
 
 
 OBJ 		= 		${SRC:.c=.o}
@@ -33,7 +35,7 @@ LIBS		= 		./libft/libft.a 						\
 $(NAME): $(OBJ)
 	make -C ./minilibx
 	make -C ./libft
-	${CC} ${FLAGS} ${OBJ} -o fractol ${FLAGS} ${LIBS}  -L./minilibx -lmlx -framework OpenGL -framework AppKit 
+	${CC} ${FLAGS} ${OBJ} -o fractol  ${LIBS}  -L./minilibx -lmlx -framework OpenGL -framework AppKit 
 
 all: $(NAME)
 

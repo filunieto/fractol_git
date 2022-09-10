@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 11:49:25 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/09 20:21:25 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/09/10 14:41:18 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,3 @@ void	parse_argum(t_mlxwin  *guide, int argc, char **argv)
 }
 
 
-void start_printing(t_mlxwin  *guide)
-{
-	t_fractol *f;
-	
-	f = guide->f;
-	fractol_inicialize(guide);
-	if (f->fract_id == 1)
-		print_mandelbrot(guide);
-	// else if (f->fract_id == 2)
-	// 	print_julia(guide);
-	else
-		error_exit(NULL, guide, 1);
-}

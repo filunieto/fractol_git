@@ -23,6 +23,8 @@
 		"mlx42.h": "c",
 		"stdio.h": "c",
 		"string.h": "c",
-		"mlx.h": "c"
+		"mlx.h": "c",
+		"fractol.h": "c",
+		"__node_handle": "c"
 	}
 }

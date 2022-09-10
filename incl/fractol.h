@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 22:17:59 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/09 20:17:22 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/09/11 00:14:52 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@
 
 /*  Parsing functions	*/
 void	parse_argum(t_mlxwin  *guide, int argc, char **argv);
-void start_printing(t_mlxwin  *guide);
 
 /*  Inicialize functions	*/
 void	first_inicialize(t_mlxwin *guide);
@@ -52,9 +51,23 @@ void	fractol_inicialize(t_mlxwin *guide);
 void	error_exit(char *message, t_mlxwin *guide, int exit_code);
 void	clean_exit(int exit_code, t_mlxwin  *guide);
 
-/*  Print mandelbrot functions	*/
+int	check_keys(int keycode, t_mlxwin  *guide);
+void	close_window(t_mlxwin  *guide);
+
+
+/*  Print fractals functions generic	*/
+void	start_printing(t_mlxwin  *guide);
+void	print_fractal1(t_mlxwin *guide);
+void	print_fractal2(t_mlxwin *guide, int x, int y, double pr, double pi);
+
+/*  Print fractals functions Mandelbrot	*/
 void	mandelbrot(t_mlxwin *guide, int x, int y, double cr, double ci);
-void	print_mandelbrot(t_mlxwin *guide);
+
+/*  Print fractals functions Julia	*/
+void	julia(t_mlxwin *guide, int x, int y, double cr, double ci);
+
+
+
 
 
 #endif

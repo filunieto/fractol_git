@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 19:45:41 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/09 20:23:45 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/09/11 00:36:49 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	clean_exit(int exit_code, t_mlxwin  *guide) //para que esta funcion
 		mlx_destroy_image(guide->mlx, guide->img); //esta funcion es de libreria
 	if (guide->win && guide->mlx) //esta condicion si es necesaria
 		mlx_destroy_window(guide->mlx, guide->win);
+	free(guide->mlx); //verificar
+	guide->mlx = NULL;
 
 	// Atencion aqui
 	// if (guide->mlx) //condicion necesaria 
@@ -50,4 +52,23 @@ void	clean_exit(int exit_code, t_mlxwin  *guide) //para que esta funcion
 	// 	free(guide->mlx);
 	// }
 	exit(exit_code);
+}
+
+void  close_window(t_mlxwin  *guide) 
+{
+	clean_exit(1, guide);
+}
+
+
+int	check_keys(int keycode, t_mlxwin  *guide)
+{
+	if (keycode == ESC)
+		clean_exit(1, guide);
+	// check_presets(keycode, guide);
+	// check_arrow_keys(keycode, guide);
+	// check_fractal_hotkeys(keycode, guide);
+	// check_color_shift_keys(keycode, guide);
+	// check_info_printing_keys(keycode);
+	printf("key : %d\n", keycode);
+	return (0);
 }

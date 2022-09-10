@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 11:29:30 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/09 20:21:38 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/09/10 16:02:51 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 \tthe following optional parameters may be used:\n\
 \t  color: <bernstein/rainbow/psychedelic/be/ra/ps/b/r/p>\n\
 \t  for Julia only: <real axis coordinate> <imaginary axis coordinate>\n"
+
+# define ERROR_INIZIALICE "\tError with instance mlx\n"
+# define ERROR_INIZIALICE_WIN "\tError with window win\n"
 
 // # define LESS_ARGUMENTS "\n\tUsage: ./fractol <fractal name> <optional parameters>\n\n\
 // \tToo few arguments!\n\

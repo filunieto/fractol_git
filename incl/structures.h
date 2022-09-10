@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 22:20:33 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/09 13:20:35 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/09/10 19:45:11 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ typedef struct  s_fractol
 	double	c_im;
 	double	j_re;
 	double	j_im;
-	double	z;
+	double	z; //valor absoluto del vector que tendra que ser menor que 4
 	double	z_re;
 	double	z_im;
+	double	k_re;	// Real part of the Julia constant
+	double	k_im;	// Imaginary part of the Julia constant
 	int		fract_id; //identificacion de fractal
 }	t_fractol;
 

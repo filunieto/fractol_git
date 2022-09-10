@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 13:09:50 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/09 20:21:51 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/09/10 19:51:25 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void static	first_inicialize_fract(t_fractol *f)
 	f->z = 0;
 	f->z_re = 0;
 	f->z_im = 0;
+	f->k_re = -0.766667;
+	f->k_im = -0.090000;
 	f->fract_id = 0;
 }
 
@@ -52,9 +54,17 @@ void	fractol_inicialize(t_mlxwin *guide)
 	
 	f = guide->f;
 	guide->mlx = mlx_init();
+	if(!guide->mlx)
+		error_exit(ERROR_INIZIALICE, guide, 1);
 	f->min_r = -2.0;
 	f->max_r = 1.0;
 	f->min_i = -1.5;
 	f->max_i = f->min_i + (f->max_r - f->min_r) * HEIGHT / WIDTH;
 	guide->win = mlx_new_window(guide->mlx, WIDTH, HEIGHT, "Fract'ol Flipi");
+	if(!guide->win)
+		error_exit(ERROR_INIZIALICE_WIN, guide, 1);
+	guide->img = mlx_new_image(guide->mlx, WIDTH, HEIGHT);
+	guide->addr = mlx_get_data_addr(guide->img, &guide->bits_per_pixel,
+			&guide->line_length, &guide->endian);
+
 }
