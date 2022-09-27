@@ -6,13 +6,13 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 13:09:50 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/27 17:00:53 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/09/27 19:35:52 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/fractol.h"
 
-void static	first_inicialize_fract(t_fractol *f)
+void static	null_inicialize_fract(t_fractol *f)
 {
 	f->view.min.x = 0;
 	f->view.min.y = 0;
@@ -40,7 +40,7 @@ void static	first_inicialize_fract(t_fractol *f)
 	f->fract_id = 0;
 }
 
-void	first_inicialize(t_mlxwin *guide)
+void	null_inicialize(t_mlxwin *guide)
 {
 	guide->mlx = NULL;
 	guide->win = NULL;
@@ -53,7 +53,7 @@ void	first_inicialize(t_mlxwin *guide)
 	// guide->mouse_x_pos = 0;
 	// guide->mouse_y_pos = 0;
 	
-	first_inicialize_fract(guide->f);
+	null_inicialize_fract(guide->f);
 }
 
 

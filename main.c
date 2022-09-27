@@ -6,21 +6,18 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 22:28:14 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/27 17:15:51 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/09/27 21:56:42 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "incl/fractol.h"
 
 /*
-	Antes  de vacines grecia:
-	Se abre los fractales Julia y Mandelbrot
-	Se cierran las ventanas corectamente con ESC y el boton rojo.
-	He empezado a recoger lo que se pulsa por teclado.
-	Desarrollar Mandelbrot hasta el final.: ZOOM, mover ejes y quiza mas colores segun N
-	A partir de Madelbrot, hacer Julia
+	Antes  de vacines Espana:
+	Fractal mandelbrot completo. Quiza se [uede anadoir las tclas para mover]
+	Julia, hay que palsmarlo. Anadir la funcion en julia.c de inicializacion de valres
+	leer la teoria y repasar
 	Preguntas:
-	TEngo que usar la funcion mlx_destroy_display(mlx_ptr)?? Parece que cuando la uso no la encuentra: https://aurelienbrabant.fr/blog/getting-started-with-the-minilibx
 */
 
 
@@ -32,7 +29,7 @@ int hook_mouse(int button, int x, int y, t_mlxwin *guide) // Francesco Zoom scal
 
 	f = guide->f;
 	
-	printf("x: %d, y: %d ", x , y);
+	printf("x: %d, y: %d ", x , y);//esta funcion hay que quiatrla, que por cierto no funcona muy bien 
 	if(button == MOUSE_UP || button == MOUSE_DOWN)
 	{
 		coord.x = f->view.min.x + (x * f->view.scale.x);
@@ -57,7 +54,7 @@ int	main(int argc, char **argv)
 	t_fractol f; 
 
 	guide.f = &f;
-	first_inicialize(&guide);
+	null_inicialize(&guide);
 	parse_argum(&guide, argc, argv);
 	start_printing(&guide);
 	//esto es lo que deberia cerrar el programa cuando se cierra la venana. Que significa el paarmtre int x_mask

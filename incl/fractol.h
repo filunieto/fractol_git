@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 22:17:59 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/27 17:17:01 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/09/27 21:45:48 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@
 #include <unistd.h>
 #include <string.h>
 #include <memory.h>
+# include <math.h>
 # include "structures.h"
 # include "keys.h"
 # include "error.h"
-
-
 
 
 #define MAX_ITERATIONS 40 // Maximum number of iterations
@@ -44,7 +43,7 @@
 void	parse_argum(t_mlxwin  *guide, int argc, char **argv);
 
 /*  Inicialize functions	*/
-void	first_inicialize(t_mlxwin *guide);
+void	null_inicialize(t_mlxwin *guide);
 void	fractol_inicialize(t_mlxwin *guide);
 
 /*  Error & exit functions	*/
@@ -58,14 +57,20 @@ void	close_window(t_mlxwin  *guide);
 /*  Print fractals functions generic	*/
 void	start_printing(t_mlxwin  *guide);
 void	print_fractal1(t_mlxwin *guide);
-void	print_fractal2(t_mlxwin *guide, int x, int y, t_complex c);
+int	fractal_function(t_mlxwin *guide, int x, int y);
+
+t_complex	scaling_value(int x, int y, t_view_value *val);
+void	my_mlx_pixel_put(t_mlxwin *guide, int x, int y, int color);
+
 
 /*  Print fractals functions Mandelbrot	*/
-void	mandelbrot(t_mlxwin *guide, int x, int y, t_complex c);
+int	mandelbrot(t_mlxwin *guide, int x, int y);
 
 /*  Print fractals functions Julia	*/
-void	julia(t_mlxwin *guide, int x, int y, t_complex c);
+int		 julia(t_mlxwin *guide, int x, int y);
 
+/*  Colors	*/
+int	color(int iteration);
 
 
 

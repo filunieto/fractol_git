@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 22:20:33 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/27 16:37:21 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/09/27 21:44:38 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ typedef struct	s_pixel
 	int			divergence_index;
 }				t_pixel;
 
-// Structure for the fractol variables
+// Structure for the fractol variables. Borrar lo que nonecesite
 typedef struct  s_fractol
 {
-	t_complex min;
-	t_complex max;
 	t_view_value view;
+	double		val_x;
+	double		val_y;
 	// double  min_r;	// Minimum value of real axis
 	// double  max_r;	// Maximum value of real axis
 	// double  min_i;	// Minimum value of imaginary axis

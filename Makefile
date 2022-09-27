@@ -6,7 +6,7 @@
 #    By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/08 22:26:19 by fnieves-          #+#    #+#              #
-#    Updated: 2022/09/10 15:00:38 by fnieves-         ###   ########.fr        #
+#    Updated: 2022/09/27 21:30:45 by fnieves-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,14 @@ CC 		= 		cc
 
 FLAGS		= 		-Wall -Wextra -Werror
 
-SRC 		= 	main.c										\
-				src/parsing.c									\
-				src/inicialize.c								\
-				src/print_fractal.c								\
-				src/error_handling.c							\
-				src/mandelbrot.c							\
+SRC 		= 	main.c								\
+				src/parsing.c						\
+				src/inicialize.c					\
+				src/print_fractal.c					\
+				src/error_handling.c				\
+				src/mandelbrot.c					\
 				src/julia.c							\
+				src/color.c							\
 
 
 OBJ 		= 		${SRC:.c=.o}
