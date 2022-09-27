@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 19:45:41 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/11 00:36:49 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/09/27 11:43:04 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	error_exit(char *message, t_mlxwin *guide, int exit_code)
 	 de algo NULL no dara problemas. Importante inicizalizar a NULL
 	if (!f)  >>> este if no es necesartio
 		exit(exit_code);
+	Atencion con la funcion "mlx_destroy_display" que no uso y segun esto https://aurelienbrabant.fr/blog/getting-started-with-the-minilibx parece necesaria
 */
 void	clean_exit(int exit_code, t_mlxwin  *guide) //para que esta funcion
 {
@@ -43,8 +44,7 @@ void	clean_exit(int exit_code, t_mlxwin  *guide) //para que esta funcion
 		mlx_destroy_window(guide->mlx, guide->win);
 	free(guide->mlx); //verificar
 	guide->mlx = NULL;
-
-	// Atencion aqui
+	// Atencion aqui , parece que mlx_destroy_display es importante >>> la he puesto y no compila. Parece que no existe en la libreria
 	// if (guide->mlx) //condicion necesaria 
 	// {
 	// 	mlx_loop_end(guide->mlx);

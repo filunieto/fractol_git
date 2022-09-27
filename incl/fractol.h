@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 22:17:59 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/11 00:14:52 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/09/27 17:17:01 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 
 
-#define MAX_ITERATIONS 80 // Maximum number of iterations
+#define MAX_ITERATIONS 40 // Maximum number of iterations
 #define WIDTH 800	// Width of the window (in pixels)
 #define HEIGHT 800	// Height of the window (in pixels)
 #define WIDTH_PIXEL 20
@@ -58,13 +58,13 @@ void	close_window(t_mlxwin  *guide);
 /*  Print fractals functions generic	*/
 void	start_printing(t_mlxwin  *guide);
 void	print_fractal1(t_mlxwin *guide);
-void	print_fractal2(t_mlxwin *guide, int x, int y, double pr, double pi);
+void	print_fractal2(t_mlxwin *guide, int x, int y, t_complex c);
 
 /*  Print fractals functions Mandelbrot	*/
-void	mandelbrot(t_mlxwin *guide, int x, int y, double cr, double ci);
+void	mandelbrot(t_mlxwin *guide, int x, int y, t_complex c);
 
 /*  Print fractals functions Julia	*/
-void	julia(t_mlxwin *guide, int x, int y, double cr, double ci);
+void	julia(t_mlxwin *guide, int x, int y, t_complex c);
 
 
 

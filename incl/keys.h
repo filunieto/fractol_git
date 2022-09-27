@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 22:24:11 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/11 00:08:27 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/09/27 17:15:01 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@
 # define EVENT_CLOSE_BTN 17
 
 // MOUSE HOOKS
-# define ZOOM_IN	5
-# define ZOOM_OUT	4
+// # define ZOOM_IN	5
+// # define ZOOM_OUT	4
+
+# define MOUSE_UP		4
+# define MOUSE_DOWN		5
 
 //KEYBOARD HOOKS
 # define ESC 		53

@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 19:43:18 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/11 00:08:27 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/09/27 17:08:07 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@
 //cambiar a al funciond e nombre y pasar lso parametros de juli
 void	print_fractal1(t_mlxwin *guide)
 {
+	// t_point point;
 	int	x; // column
 	int	y; // line
 	t_fractol *f;
 	
 	f = guide->f;
-	double	pr; // real part of the complex number of the pixel
-	double	pi; // imaginary part of the complex number of the pixel
+	t_complex c;
+	// double	pr; // real part of the complex number of the pixel >>>c
+	// double	pi; // imaginary part of the complex number of the pixel
 	// Loop over each line and column of the window
 	// to check each pixels
 	y = -1;
@@ -32,19 +34,19 @@ void	print_fractal1(t_mlxwin *guide)
 		while (++x < WIDTH) // column loop
 		{
 			// Find pixel[x, y]'s corresponding complex number
-			pr = f->min_r + (double)x * (f->max_r - f->min_r) / WIDTH;
-			pi = f->min_i + (double)y * (f->max_i - f->min_i) / HEIGHT;
-			print_fractal2(guide, x, y, pr, pi);
+			c.real = f->view.min.x + (double)x * (f->view.max.x - f->view.min.x) / WIDTH;
+			c.imm = f->view.min.y + (double)y * (f->view.max.y - f->view.min.y) / HEIGHT;
+			print_fractal2(guide, x, y, c);
 		}
 	}
 }
 
-void	print_fractal2(t_mlxwin *guide, int x, int y, double pr, double pi)
+void	print_fractal2(t_mlxwin *guide, int x, int y, t_complex c)
 {
 	if (guide->f->fract_id == 1)
-		mandelbrot(guide, x, y, pr, pi);
+		mandelbrot(guide, x, y, c);
 	else if (guide->f->fract_id == 2)
-		julia(guide, x, y, pr, pi);
+		julia(guide, x, y, c);
 	else
 		error_exit(NULL, guide, 1);
 }
@@ -52,9 +54,9 @@ void	print_fractal2(t_mlxwin *guide, int x, int y, double pr, double pi)
 
 void start_printing(t_mlxwin  *guide)
 {
-	t_fractol *f;
+	// t_fractol *f;
 	
-	f = guide->f;
+	// f = guide->f;
 	fractol_inicialize(guide);
 	print_fractal1(guide);
 	
