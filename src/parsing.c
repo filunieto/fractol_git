@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 11:49:25 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/10 14:41:18 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/10/13 12:42:52 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	get_set(t_mlxwin  *guide, char **av)
 	else if (type_cmp(av[1], "julia", 'j', '2'))
 		guide->f->fract_id = JULIA;
 	else
-		error_exit(NULL, guide, 1);
+		error_exit(USAGE1, guide, 1); //cambiar el mesnaje USAGE1 por NULL
 }
 
 
@@ -42,12 +42,13 @@ static void	get_set(t_mlxwin  *guide, char **av)
 
 void	parse_argum(t_mlxwin  *guide, int argc, char **argv)
 {
-	if (argc < 2)
+	if ((argc < 2) || (argc > 5))
 		error_exit(USAGE, guide, 1); //poner otro mensaje de rror
-	if (argc > 5)
-		error_exit(USAGE, guide, 1);
 	get_set(guide, argv);
-	
+	if (guide->f->fract_id = MANDELBROT && (argc != 2)) //para Mandelbrot solo un parametro
+		error_exit(ERROR_MANDELBROT, guide, 1);
+	// if (guide->f->fract_id = JULIA && (argc != 2)) //para Julia, dar un valor por defecto inicialmente y solo error si alguno de los parametros no es del tipo correcto  si argc == 2 ypersonalizar mensaje
+	// 	error_exit(ERROR_MANDELBROT, guide, 1); 
 }
 
 

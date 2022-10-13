@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 22:28:14 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/27 21:56:42 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/10/11 21:38:11 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 /*
 	Antes  de vacines Espana:
-	Fractal mandelbrot completo. Quiza se [uede anadoir las tclas para mover]
-	Julia, hay que palsmarlo. Anadir la funcion en julia.c de inicializacion de valres
+	Fractal mandelbrot completo. Quiza se puede anadoir las tclas para mover]. opcional. chequear
+	Julia, hay que plasmarlo. Anadir la funcion en julia.c de inicializacion de valres
 	leer la teoria y repasar
 	Preguntas:
 */
-
 
 int hook_mouse(int button, int x, int y, t_mlxwin *guide) // Francesco Zoom scaling function;
 {

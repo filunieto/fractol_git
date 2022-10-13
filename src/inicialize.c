@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 13:09:50 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/27 19:35:52 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/10/12 11:40:40 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ void static	null_inicialize_fract(t_fractol *f)
 	f->view.min.y = 0;
 	f->view.max.x = 0;
 	f->view.max.y = 0;
+	f->view.scale.x = 0;
+	f->view.scale.y = 0;
+	f->val_x = 0;
+	f->val_y = 0;
 	// f->min_r = 0;
 	// f->max_r = 0;
 	// f->min_i = 0;
