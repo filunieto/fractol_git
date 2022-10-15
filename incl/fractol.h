@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 22:17:59 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/10/15 01:34:45 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/10/15 12:59:45 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,7 @@ int	hook_mouse(int button, int x, int y, t_mlxwin *guide);
 
 
 /*  Print fractals functions generic	*/
-void	start_printing(t_mlxwin  *guide);
-void	print_fractal1(t_mlxwin *guide);
+void	print_fractal(t_mlxwin *guide);
 int	fractal_function(t_mlxwin *guide, int x, int y);
 
 t_complex	scaling_value(int x, int y, t_view_value *val);

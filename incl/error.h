@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 11:29:30 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/10/14 21:53:38 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/10/15 12:53:00 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,27 @@
 
 # define USAGE "\n\tUsage: ./fractol <fractal name> <optional parameters>\n\n\
 \tspecify at least one parameter:\n\
-\t fractal name: <Mandelbrot/Julia/.../M/J/.>\n\n\
-\tthe following optional parameters may be used:\n\
-\t  color: <bernstein/rainbow/psychedelic/be/ra/ps/b/r/p>\n\
-\t  for Julia only: <real axis coordinate> <imaginary axis coordinate>\n"
+\tfractal name: <Mandelbrot/Julia/.../M/J/1>\n\n\
+\tfractal name could be whole name (Julia) or \n\
+\tfirst letter: M, J, B, C,...or a number between 1 and 4\n\n\
+\tfor Julia only: <real axis coordinate> <imaginary axis coordinate>\n"
 
-# define USAGE1 "\n\tUsage 1\n\n\
-\t usage1\n"
+# define ERROR_MANDELBROT "\tUsage for Mandelbrot/Colibri/Burning ship\n\
+\t./fractol <Mandelbrot/M/1/> or\n\
+\t./fractol <Burning/b/3/> or\n\
+\t./fractol <colibri/c/4/>\n\
+\tNo need of more than 1 paremeters with the name \n"
 
-# define ERROR_MANDELBROT "\tUsage for Mandelbrot ./fractol <Mandelbrot/M/1/>\n\
-\tNo need of more paremeters \n"
-
-# define ERROR_JULIA "\tUsage for Julia ./fractol <Julia/J/2/ and>\n\
-\tinsert no parameters or 2 nummbers in range [-2, 2]\n"
+# define ERROR_JULIA "\n\tJulia usage:\n\n\
+\t ./fractol Julia <real_coordinate> <imaginary_coordinate>\n\
+\t ./fractol Julia\n\n\
+\tNB provide either zero or two valid coordinates for Julia set\n\
+\tCoordinates should be representable as a double, in range [-2, 2] e.g.:\n\n\
+\t\t./fractol Julia 0.1534 -2.17\n\n\
+\tIf no coordinates are provided, default coordinates {-0.79, -0.09} will\
+ be used\n"
 
 # define ERROR_INIZIALICE "\tError with instance mlx\n"
 # define ERROR_INIZIALICE_WIN "\tError with window win\n"
-
-// # define LESS_ARGUMENTS "\n\tUsage: ./fractol <fractal name> <optional parameters>\n\n\
-// \tToo few arguments!\n\
-// \tplease you need to introduce\n\
-// \tmore arguments \n\n\"
-
-// # define MANY_ARGUMENTS "\n\tUsage: ./fractol <fractal name> <optional parameters>\n\n\
-// \tToo many arguments!\n\
-// \tplease you need to introduce\n\
-// \tless arguments \n\n\"
 
 #endif

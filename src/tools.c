@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 23:39:03 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/10/15 01:35:33 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/10/15 12:55:40 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	check_keys(int keycode, t_mlxwin  *guide)
 	if(keycode == Q)
 	{
 		change_color(guide);
-		print_fractal1(guide);
+		print_fractal(guide);
 	}
 	return (0);
 }
@@ -44,7 +44,7 @@ int hook_mouse(int button, int x, int y, t_mlxwin *guide) // Francesco Zoom scal
 	printf("x: %d, y: %d ", x , y);//esta funcion hay que quiatrla, que por cierto no funcona muy bien 
 	if(button == MOUSE_UP || button == MOUSE_DOWN)
 	{
-		coord.x = f->view.min.x + (x * f->view.scale.x);
+		coord.x = f->view.min.x + (x * f->view.scale.x); //esto hace que donde se coloque el raton se haga  zoom
 		coord.y = f->view.max.y - (y * f->view.scale.y);
 		if(button == MOUSE_UP)
 			zoom = 1.2;
@@ -54,12 +54,12 @@ int hook_mouse(int button, int x, int y, t_mlxwin *guide) // Francesco Zoom scal
 		(f->view).max.x = coord.x + (f->view.max.x - coord.x) * zoom;
 		(f->view).min.y = coord.y + (f->view.min.y - coord.y) * zoom;
 		(f->view).max.y = coord.y + (f->view.max.y - coord.y) * zoom;
-		print_fractal1(guide);
+		print_fractal(guide);
 	}
 	// if(button == LEFT_CLICK)
 	// {
 	// 	change_color(guide);
-	// 	print_fractal1(guide);
+	// 	print_fractal(guide);
 	// }
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 22:28:14 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/10/15 01:37:41 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/10/15 13:00:51 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,8 @@
 	Para sabado:
 	intentar la funciond e cambio de color con clik . (d)
 uint32_t	generate_colors(int iterations, int max_iterations, t_data *data)
-	Corregir los posibles errores de los parametros de Julia
 	borrar printf
 */
-
-
 
 int	main(int argc, char **argv)
 {
@@ -47,16 +44,10 @@ int	main(int argc, char **argv)
 	guide.f = &f;
 	null_inicialize(&guide);
 	parse_argum(&guide, argc, argv);
-	start_printing(&guide);
-	//esto es lo que deberia cerrar el programa cuando se cierra la venana. Que significa el paarmtre int x_mask
-	//mlx_key_hook(guide.win, hook, &guide);
-	//printf("hasta aqui 0/n");
+	fractol_inicialize(&guide);
+	print_fractal(&guide);
 	mlx_key_hook(guide.win, check_keys, &guide);
-	////podria usar clean_exit(1, guide) abajo en lugar de close_window?? como pongo 2 parametros;
 	mlx_hook(guide.win, EVENT_CLOSE_BTN, 0, close_window,  &guide);
-	//hay que anadir la funcion del mouse
-	//mlx_mouse_hook(guide.win, &mouse, &guide);
-	mlx_hook(guide.win, 4, 0, &hook_mouse, &guide); //Francesco
+	mlx_hook(guide.win, 4, 0, &hook_mouse, &guide);
 	mlx_loop(guide.mlx);
 }
-

@@ -25,6 +25,8 @@
 		"string.h": "c",
 		"mlx.h": "c",
 		"fractol.h": "c",
-		"__node_handle": "c"
+		"__node_handle": "c",
+		"__locale": "c",
+		"ios": "c"
 	}
 }

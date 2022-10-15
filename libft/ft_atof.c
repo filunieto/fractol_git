@@ -6,52 +6,64 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 21:52:22 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/12 17:13:51 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/10/15 11:52:27 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-static char	*initial_part(char *ptr, int *sign)
+/* skip_space_sign:
+*	Skips spaces, '+' and '-' sign characters and sets the
+*	is_neg variable if a '-' sign is detected.
+*	Used to parse strings representing float values for Julia.
+*/
+static int	skip_space_sign(const char *str, int *is_neg)
 {
-	*sign = 1;
-	while (ft_isspace(*ptr))
-		ptr++;
-	if (*ptr == '+')
-		ptr++;
-	if (*ptr == '-')
+	int	i;
+
+	i = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		*sign = -1;
-		ptr++;
+		if (str[i] == '-')
+			*is_neg *= -1;
+		i++;
 	}
-	return (ptr);
+	return (i);
 }
 
-double	ft_atof(const char *s)
+/* ft_atof:
+*	Converts a string into a float (decimal number). Used to parse
+*	Julia starting values given as program arguments.
+*	Returns the converted double, or -42 in case of error (Julia accepts
+*	values between 2.0 and -2.0 only)
+*/
+double	ft_atof(const char *str)
 {
-	char	*ptr;
-	int		sign;
-	double	nbr;
-	int		power;
+	int		i;
+	double	nb;
+	int		is_neg;
+	double	div;
 
-	nbr = 0;
-	ptr = (char *) s;
-	if (!ft_strisfloat(ptr))
-		return (0);
-	ptr = initial_part(ptr, &sign);
-	while (ft_isdigit(*ptr))
+	nb = 0;
+	div = 0.1;
+	is_neg = 1;
+	i = skip_space_sign(str, &is_neg);
+	while (str[i] && ft_isdigit(str[i]) && str[i] != '.')
 	{
-		nbr = (nbr * 10) + *ptr - '0';
-		ptr++;
+		nb = (nb * 10.0) + (str[i] - '0');
+		i++;
 	}
-	if (*ptr == '.')
-		ptr++;
-	power = 1;
-	while (*ptr && ft_isdigit(*ptr))
+	if (str[i] == '.')
+		i++;
+	while (str[i] && ft_isdigit(str[i]))
 	{
-		nbr = nbr + ((*ptr - '0') / ft_pow(10, power));
-		power++;
-		ptr++;
+		nb = nb + ((str[i] - '0') * div);
+		div *= 0.1;
+		i++;
 	}
-	return (sign * nbr);
+	if (str[i] && !ft_isdigit(str[i]))
+		return (-42);
+	return (nb * is_neg);
 }
