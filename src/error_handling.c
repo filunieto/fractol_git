@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 19:45:41 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/10/15 13:31:05 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/10/15 17:31:51 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,19 @@ void	error_exit(char *message, t_mlxwin *guide, int exit_code)
 /* 
 	Destroys the window, the MLX image and the MLX instance,
 */
-void	clean_exit(int exit_code, t_mlxwin  *guide)
+void	clean_exit(int exit_code, t_mlxwin *guide)
 {
-	if (!guide)  
-		exit(exit_code);
-	if (guide->img)
-		mlx_destroy_image(guide->mlx, guide->img);
-	if (guide->win && guide->mlx)
+	exit_code = 0;
+	guide->f = NULL;
+	if (guide->mlx != NULL)
+	{
 		mlx_destroy_window(guide->mlx, guide->win);
-	free(guide->mlx);
-	guide->mlx = NULL;
+		mlx_destroy_image(guide->mlx, guide->img);
+	}
 	exit(exit_code);
 }
 
-void  close_window(t_mlxwin  *guide) 
+void	close_window(t_mlxwin *guide)
 {
 	clean_exit(1, guide);
 }
-
-

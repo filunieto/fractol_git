@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 11:49:25 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/10/15 12:54:21 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/10/15 17:42:36 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	type_cmp(char *av, char *str, char c, char n)
 	return (0);
 }
 
-static void	get_set(t_mlxwin  *guide, char **av)
+static void	get_set(t_mlxwin *guide, char **av)
 {
 	if (type_cmp(av[1], "mandelbrot", 'm', '1'))
 		guide->f->fract_id = MANDELBROT;
@@ -40,16 +40,14 @@ static void	get_set(t_mlxwin  *guide, char **av)
 		error_exit(USAGE, guide, 1);
 }
 
-void	parse_argum(t_mlxwin  *guide, int argc, char **argv)
+void	parse_argum(t_mlxwin *guide, int argc, char **argv)
 {
 	if ((argc < 2) || (argc > 5))
 		error_exit(USAGE, guide, 1);
 	get_set(guide, argv);
 	if ((guide->f->fract_id == MANDELBROT || guide->f->fract_id == SHIP
-		|| guide->f->fract_id == MOSQUITO) && (argc != 2))
+			|| guide->f->fract_id == MOSQUITO) && (argc != 2))
 		error_exit(ERROR_MANDELBROT, guide, 1);
 	if ((guide->f->fract_id == JULIA) && !check_julia_values(guide, argc, argv))
 		error_exit(ERROR_JULIA, guide, 1);
 }
-
-

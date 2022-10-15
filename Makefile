@@ -6,7 +6,7 @@
 #    By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/08 22:26:19 by fnieves-          #+#    #+#              #
-#    Updated: 2022/10/15 00:28:35 by fnieves-         ###   ########.fr        #
+#    Updated: 2022/10/15 17:57:44 by fnieves-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME 		= 		fractol
 
 CC 		= 		cc
 
-FLAGS		= 		-Wall -Wextra -Werror
+FLAGS		= 		-Wall -Wextra -Werror -g
 
 SRC 		= 	main.c								\
 				src/parsing.c						\
@@ -31,7 +31,6 @@ SRC 		= 	main.c								\
 
 OBJ 		= 		${SRC:.c=.o}
 
-
 LIBS		= 		./libft/libft.a 						\
 
 
@@ -42,13 +41,11 @@ $(NAME): $(OBJ)
 
 all: $(NAME)
 
-# cd ./lib/ft_printf && make fclean && cd .. && cd .. Lo quite de abajo
 clean:
 	cd minilibx && make clean
 	cd libft && make clean
 	rm -f ${OBJ}
 
-# cd .minilibx && make clean && cd .. 
 fclean: clean
 	cd libft && make fclean
 	rm -f ${OBJ}

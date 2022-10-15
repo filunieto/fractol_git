@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 22:28:14 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/10/15 14:35:12 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/10/15 17:59:36 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,7 @@
 	zi = 2 * zr * zi + ci
 	if ((zr * zr + zi * zi) > 4)
 	The number of iterations until it goes to infinity
-	will give us the colours (degree of instability)	
-
-	Para sabado:
-	intentar la funciond e cambio de color con clik . (d)
-uint32_t	generate_colors(int iterations, int max_iterations, t_data *data)
-	memory leaks
+	will give us the colours (degree of instability)
 */
 
 /*
@@ -46,17 +41,17 @@ void	check_leaks(void)
 
 int	main(int argc, char **argv)
 {
-	t_mlxwin guide;
-	t_fractol f; 
+	t_mlxwin	guide;
+	t_fractol	f;
 
 	guide.f = &f;
-	atexit(check_leaks);
 	null_inicialize(&guide);
 	parse_argum(&guide, argc, argv);
 	fractol_inicialize(&guide);
 	print_fractal(&guide);
 	mlx_key_hook(guide.win, &check_keys, &guide);
-	mlx_hook(guide.win, EVENT_CLOSE_BTN, 0, close_window,  &guide);
+	mlx_hook(guide.win, EVENT_CLOSE_BTN, 0, close_window, &guide);
 	mlx_hook(guide.win, 4, 0, &hook_mouse, &guide);
 	mlx_loop(guide.mlx);
+	return (0);
 }
