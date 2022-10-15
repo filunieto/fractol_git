@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 22:20:33 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/27 21:44:38 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/10/14 22:56:36 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,9 @@ typedef struct s_mlxwin
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	int i;
+	int j;
+	int k;
 	// double	mouse_x_pos;
 	// double	mouse_y_pos;
 	t_fractol	*f;

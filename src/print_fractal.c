@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 19:43:18 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/27 21:39:55 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/10/15 01:26:39 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	print_fractal1(t_mlxwin *guide) //funcion draw de Francesco
 	int	y; // line
 	t_fractol *f;
 	int iteration;
-	
+
 	ft_new_image(guide);
 	f = guide->f;
 	t_complex c;
@@ -49,6 +49,7 @@ void	print_fractal1(t_mlxwin *guide) //funcion draw de Francesco
 	// double	pi; // imaginary part of the complex number of the pixel
 	// Loop over each line and column of the window
 	// to check each pixels
+	//printf("en print fractal este es el ID: %i\n", guide->f->fract_id);
 	y = -1;
 	while (++y < HEIGHT) // line loop
 	{
@@ -60,7 +61,7 @@ void	print_fractal1(t_mlxwin *guide) //funcion draw de Francesco
 			if(iteration < MAX_ITERATIONS)
 				my_mlx_pixel_put(guide, x, y, color(iteration)); //cambiar my_mlx_pixel_put(guide, x, y, color(iteration));
 			if(iteration == MAX_ITERATIONS)
-				my_mlx_pixel_put(guide, x, y, 000127255212);
+				my_mlx_pixel_put(guide, x, y,  get_argb(0, 148, 180, 159));
 			// c.real = f->view.min.x + (double)x * (f->view.max.x - f->view.min.x) / WIDTH;
 			// c.imm = f->view.min.y + (double)y * (f->view.max.y - f->view.min.y) / HEIGHT;
 			//print_fractal2(guide, x, y, c); //esta no hara falta, sea la equivalente a fractal function
@@ -75,9 +76,21 @@ int	fractal_function(t_mlxwin *guide, int x, int y)
 
 	iteration_value = 0;
 	if (guide->f->fract_id == 1)
+	{
 		iteration_value = mandelbrot(guide, x, y);
+	}
 	else if (guide->f->fract_id == 2)
+	{
 		iteration_value = julia(guide, x, y);
+	}
+	else if (guide->f->fract_id == 3)
+	{
+		iteration_value = burning_ship(guide, x, y);
+	}
+	else if (guide->f->fract_id == 4)
+	{
+		iteration_value = colibri(guide, x, y);
+	}
 	else
 		error_exit(NULL, guide, 1);
 	return (iteration_value);

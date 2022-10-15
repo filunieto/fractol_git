@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 13:09:50 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/10/12 11:40:40 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/10/15 00:26:53 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,18 @@ void	null_inicialize(t_mlxwin *guide)
 	guide->mlx = NULL;
 	guide->win = NULL;
 	guide->img = NULL;
-	
 	guide->addr = NULL;
 	guide->bits_per_pixel = 0;
 	guide->line_length = 0;
 	guide->endian = 0;
+	guide->i = 0;
+	guide->j = 1;
+	guide->k = 2;
 	// guide->mouse_x_pos = 0;
 	// guide->mouse_y_pos = 0;
 	
 	null_inicialize_fract(guide->f);
 }
-
-
 
 void	fractol_inicialize(t_mlxwin *guide)
 {

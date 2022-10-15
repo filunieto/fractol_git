@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 11:29:30 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/10/13 12:41:41 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/10/14 21:53:38 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 
 # define ERROR_MANDELBROT "\tUsage for Mandelbrot ./fractol <Mandelbrot/M/1/>\n\
 \tNo need of more paremeters \n"
+
+# define ERROR_JULIA "\tUsage for Julia ./fractol <Julia/J/2/ and>\n\
+\tinsert no parameters or 2 nummbers in range [-2, 2]\n"
 
 # define ERROR_INIZIALICE "\tError with instance mlx\n"
 # define ERROR_INIZIALICE_WIN "\tError with window win\n"

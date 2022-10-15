@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 22:24:11 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/27 17:15:01 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/10/15 00:20:01 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,26 @@
 // # define ZOOM_IN	5
 // # define ZOOM_OUT	4
 
+/*
+// mouse button codes
+*/
+
 # define MOUSE_UP		4
 # define MOUSE_DOWN		5
+# define RIGHT_CLICK 2
+# define LEFT_CLICK 1
+# define MOUSE_WHEEL 3
+
+
+//ARROW KEYS HOOKS
+// typedef enum s_arrows
+// {
+// 	LEFT = 123,
+// 	RIGHT,
+// 	DOWN,
+// 	UP,
+// }	t_arrows;
+
 
 //KEYBOARD HOOKS
 # define ESC 		53
@@ -44,8 +62,8 @@
 //ARROW KEYS HOOKS
 # define UP 		126
 # define DOWN 		125
-# define LEFT 		123
-# define RIGHT		124
+# define LEFT 		124
+# define RIGHT		123
 
 //FRACTAL HOTKEYS
 # define J 			38

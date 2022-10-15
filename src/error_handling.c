@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 19:45:41 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/09/27 11:43:04 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/10/14 23:39:45 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,3 @@ void  close_window(t_mlxwin  *guide)
 }
 
 
-int	check_keys(int keycode, t_mlxwin  *guide)
-{
-	if (keycode == ESC)
-		clean_exit(1, guide);
-	// check_presets(keycode, guide);
-	// check_arrow_keys(keycode, guide);
-	// check_fractal_hotkeys(keycode, guide);
-	// check_color_shift_keys(keycode, guide);
-	// check_info_printing_keys(keycode);
-	printf("key : %d\n", keycode);
-	return (0);
-}

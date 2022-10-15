@@ -6,45 +6,37 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 22:28:14 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/10/11 21:38:11 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/10/15 01:37:41 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "incl/fractol.h"
 
 /*
-	Antes  de vacines Espana:
-	Fractal mandelbrot completo. Quiza se puede anadoir las tclas para mover]. opcional. chequear
-	Julia, hay que plasmarlo. Anadir la funcion en julia.c de inicializacion de valres
-	leer la teoria y repasar
-	Preguntas:
+	Explicacion de proyecto.
+	Tenemos un cuadrado  de pixeles (900, 900) que hay que transformar en numero complejo (  es C).
+	Sabemos la equivalencia de ciertso numeros complejos y algunos pixeles. A partir de ahi 
+	hay que ver si ese numero complejo pertenece al set de mandelbrot (dentro o fuera == estable o inestable)
+	con la formula Formula : Z = Z * Z + C
+	Para saberlo:
+	// Formula : Z = Z * Z + c
+	//          (where c = cr + ci and Z = zr + zi)
+	zr = zr * zr - zi * zi + cr
+	zi = 2 * zr * zi + ci
+	if ((zr * zr + zi * zi) > 4)
+	El numero de iteraciones hasta que se vaya al infinito nos dara los colores (grado de inestabilidad)
+    // The number is not part of the set
+	
+	La funcion Mandelbrot, ira recorriendo cada pixel, calculando C a partir del pixel y comprobando si esta dentro o fuera.
+	Dentro tendra color negro fuera tendra otro color. una vex , hecho a cada pixel inicial (x,y) se le asigna el color
+
+	Para sabado:
+	intentar la funciond e cambio de color con clik . (d)
+uint32_t	generate_colors(int iterations, int max_iterations, t_data *data)
+	Corregir los posibles errores de los parametros de Julia
+	borrar printf
 */
 
-int hook_mouse(int button, int x, int y, t_mlxwin *guide) // Francesco Zoom scaling function;
-{
-	t_point	coord;
-	float	zoom;
-	t_fractol *f;
-
-	f = guide->f;
-	
-	printf("x: %d, y: %d ", x , y);//esta funcion hay que quiatrla, que por cierto no funcona muy bien 
-	if(button == MOUSE_UP || button == MOUSE_DOWN)
-	{
-		coord.x = f->view.min.x + (x * f->view.scale.x);
-		coord.y = f->view.max.y - (y * f->view.scale.y);
-		if(button == MOUSE_UP)
-			zoom = 1.2;
-		else
-			zoom = 0.8;
-		(f->view).min.x = coord.x + (f->view.min.x - coord.x) * zoom;
-		(f->view).max.x = coord.x + (f->view.max.x - coord.x) * zoom;
-		(f->view).min.y = coord.y + (f->view.min.y - coord.y) * zoom;
-		(f->view).max.y = coord.y + (f->view.max.y - coord.y) * zoom;
-		print_fractal1(guide);
-	}
-	return (0);
-}
 
 
 int	main(int argc, char **argv)
@@ -63,7 +55,7 @@ int	main(int argc, char **argv)
 	////podria usar clean_exit(1, guide) abajo en lugar de close_window?? como pongo 2 parametros;
 	mlx_hook(guide.win, EVENT_CLOSE_BTN, 0, close_window,  &guide);
 	//hay que anadir la funcion del mouse
-	//mlx_mouse_hook(guide.win, check_mouse_hooks, &guide);
+	//mlx_mouse_hook(guide.win, &mouse, &guide);
 	mlx_hook(guide.win, 4, 0, &hook_mouse, &guide); //Francesco
 	mlx_loop(guide.mlx);
 }

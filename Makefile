@@ -6,7 +6,7 @@
 #    By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/08 22:26:19 by fnieves-          #+#    #+#              #
-#    Updated: 2022/09/27 21:30:45 by fnieves-         ###   ########.fr        #
+#    Updated: 2022/10/15 00:28:35 by fnieves-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ SRC 		= 	main.c								\
 				src/mandelbrot.c					\
 				src/julia.c							\
 				src/color.c							\
+				src/tools.c							\
+				src/moves.c							\
 
 
 OBJ 		= 		${SRC:.c=.o}
