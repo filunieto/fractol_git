@@ -6,35 +6,43 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 22:28:14 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/10/15 13:00:51 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/10/15 14:35:12 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "incl/fractol.h"
 
 /*
-	Explicacion de proyecto.
-	Tenemos un cuadrado  de pixeles (900, 900) que hay que transformar en numero complejo (  es C).
-	Sabemos la equivalencia de ciertso numeros complejos y algunos pixeles. A partir de ahi 
-	hay que ver si ese numero complejo pertenece al set de mandelbrot (dentro o fuera == estable o inestable)
-	con la formula Formula : Z = Z * Z + C
-	Para saberlo:
-	// Formula : Z = Z * Z + c
-	//          (where c = cr + ci and Z = zr + zi)
+	Reasume of the project:
+	We have a square of pixels (ej: 900, 900) to be transformed
+	into a complex plane ( C).
+	We know the equivalence of some complex numbers and
+	some pixels. By trigonometry we calculate each complex point.
+	Then we check if this complex number belongs to
+	the mandelbrot set (inside or outside == stable or unstable).
+	with the formula Formula : Z = Z * Z + C
+	To find out:
+		Formula : Z = Z * Z + c
+	(where c = cr + ci and Z = zr + zi)
 	zr = zr * zr - zi * zi + cr
 	zi = 2 * zr * zi + ci
 	if ((zr * zr + zi * zi) > 4)
-	El numero de iteraciones hasta que se vaya al infinito nos dara los colores (grado de inestabilidad)
-    // The number is not part of the set
-	
-	La funcion Mandelbrot, ira recorriendo cada pixel, calculando C a partir del pixel y comprobando si esta dentro o fuera.
-	Dentro tendra color negro fuera tendra otro color. una vex , hecho a cada pixel inicial (x,y) se le asigna el color
+	The number of iterations until it goes to infinity
+	will give us the colours (degree of instability)	
 
 	Para sabado:
 	intentar la funciond e cambio de color con clik . (d)
 uint32_t	generate_colors(int iterations, int max_iterations, t_data *data)
-	borrar printf
+	memory leaks
 */
+
+/*
+	atexit(check_leaks);
+*/
+void	check_leaks(void)
+{
+	system("leaks fractol");
+}
 
 int	main(int argc, char **argv)
 {
@@ -42,11 +50,12 @@ int	main(int argc, char **argv)
 	t_fractol f; 
 
 	guide.f = &f;
+	atexit(check_leaks);
 	null_inicialize(&guide);
 	parse_argum(&guide, argc, argv);
 	fractol_inicialize(&guide);
 	print_fractal(&guide);
-	mlx_key_hook(guide.win, check_keys, &guide);
+	mlx_key_hook(guide.win, &check_keys, &guide);
 	mlx_hook(guide.win, EVENT_CLOSE_BTN, 0, close_window,  &guide);
 	mlx_hook(guide.win, 4, 0, &hook_mouse, &guide);
 	mlx_loop(guide.mlx);

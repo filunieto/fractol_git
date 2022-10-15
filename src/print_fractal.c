@@ -6,13 +6,16 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 19:43:18 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/10/15 13:00:27 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/10/15 13:17:21 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/fractol.h"
 
-//cambiar el nombre a la funcion
+/*
+	This function makes everything faster
+	https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html
+*/
 void	my_mlx_pixel_put(t_mlxwin *guide, int x, int y, int color)
 {
 	char	*dst;
@@ -21,7 +24,6 @@ void	my_mlx_pixel_put(t_mlxwin *guide, int x, int y, int color)
 	*(unsigned int*)dst	= color;
 }
 
-//esta funcion creo que es la responsable de que todo sea mas rapido
 static void	ft_new_image(t_mlxwin *guide)
 {	
 	guide->img = mlx_new_image(guide->img, WIDTH, HEIGHT);
@@ -30,36 +32,38 @@ static void	ft_new_image(t_mlxwin *guide)
 		mlx_destroy_image(guide->mlx, guide->img);
 		return;
 	}
-	guide->addr = mlx_get_data_addr(guide->img, &guide->bits_per_pixel, &guide->line_length, &guide->endian); //verificar que hace esta funcion
+	guide->addr = mlx_get_data_addr(guide->img, &guide->bits_per_pixel, &guide->line_length, &guide->endian);
 }
 
-//cambiar a al funciond e nombre y pasar lso parametros de juli.
-void	print_fractal(t_mlxwin *guide) //funcion draw de Francesco
+/*
+	Function that goes through each pixel 
+	and transforms it into a complex number
+	to check if it is stable or not and belongs 
+	to the mandelbrot set.
+	If it does not fit the formula we know it is unstable.
+	We give a maximum number of iterations.
+	For unstable numbers the value of iteration
+	will give us the grade of instability and the colour.
+*/
+void	print_fractal(t_mlxwin *guide)
 {
-	// t_point point;
-	int	x; // column
-	int	y; // line
+	int	x;
+	int	y;
 	t_fractol *f;
 	int iteration;
 
 	ft_new_image(guide);
 	f = guide->f;
 	t_complex c;
-	// double	pr; // real part of the complex number of the pixel >>>c
-	// double	pi; // imaginary part of the complex number of the pixel
-	// Loop over each line and column of the window
-	// to check each pixels
-	//printf("en print fractal este es el ID: %i\n", guide->f->fract_id);
 	y = -1;
-	while (++y < HEIGHT) // line loop
+	while (++y < HEIGHT)
 	{
 		x = -1;
-		while (++x < WIDTH) // column loop
+		while (++x < WIDTH)
 		{
-			// Find pixel[x, y]'s corresponding complex number
 			iteration = fractal_function(guide, x, y);
 			if(iteration < MAX_ITERATIONS)
-				my_mlx_pixel_put(guide, x, y, color(iteration)); //cambiar my_mlx_pixel_put(guide, x, y, color(iteration));
+				my_mlx_pixel_put(guide, x, y, color(iteration));
 			if(iteration == MAX_ITERATIONS)
 				my_mlx_pixel_put(guide, x, y,  get_argb(0, 148, 180, 159));
 		}
