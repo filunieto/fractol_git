@@ -6,14 +6,14 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 22:28:14 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/10/15 17:59:36 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/10/15 18:04:06 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "incl/fractol.h"
 
 /*
-	Reasume of the project:
+	Resume of the project:
 	We have a square of pixels (ej: 900, 900) to be transformed
 	into a complex plane ( C).
 	We know the equivalence of some complex numbers and
